@@ -1,4 +1,4 @@
-version: 0.2
+ITORversion: 0.2
 phases:
   pre_build:
     commands:
@@ -9,7 +9,7 @@ phases:
       # update below 
       - aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 442426866986.dkr.ecr.eu-north-1.amazonaws.com
       - # Replace with this to your repository URI
-      - 442426866986.dkr.ecr.eu-north-1.amazonaws.com/sumilpanicker/learning
+      - REPOSITORY_URI=442426866986.dkr.ecr.eu-north-1.amazonaws.com/sumilpanicker/learning
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
